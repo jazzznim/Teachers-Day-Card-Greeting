@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A customizable interactive Teachers' Day message card with flip animation, photos, and audio.">
+  <title>Happy Teachers' Day | Message Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="eyebrow">A little appreciation goes a long way</span>
+      <h1>Happy Teachers' Day</h1>
+      <p>Create a personal digital card for a teacher who inspires you.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="card-area">
+        <div class="flip-card" id="flipCard" tabindex="0" aria-label="Teachers' Day card. Click to flip.">
+          <div class="flip-inner">
+            <article class="card-face card-front">
+              <div class="pattern"></div>
+              <div class="front-content">
+                <div class="flower">✿</div>
+                <p class="small-label">WITH GRATITUDE</p>
+                <h2>Happy<br><span>Teachers' Day</span></h2>
+                <p class="front-name" id="frontTeacher">To an amazing teacher</p>
+                <button class="flip-btn" type="button" id="flipButton">Open Card <span>↻</span></button>
+              </div>
+            </article>
+
+            <article class="card-face card-back">
+              <div class="back-header">
+                <span>THANK YOU, TEACHER</span>
+                <span class="date">2026</span>
+              </div>
+              <div class="photo-frame">
+                <img id="cardPhoto" alt="Uploaded teacher or class photo" hidden>
+                <div class="photo-placeholder" id="photoPlaceholder">
+                  <span>♡</span>
+                  <small>Your photo</small>
+                </div>
+              </div>
+              <div class="message">
+                <p class="greeting" id="backTeacher">Dear Teacher,</p>
+                <p id="cardMessage">Thank you for your patience, guidance, and kindness. Your lessons inspire us to learn, grow, and believe in ourselves. We are grateful for everything you do.</p>
+                <p class="signature">With heartfelt thanks,<br><strong id="cardSender">Your Student</strong></p>
+              </div>
+              <div class="audio-player" id="audioPlayer" hidden>
+                <button type="button" id="audioToggle" aria-label="Play audio">▶</button>
+                <div class="audio-info">
+                  <strong>Special message</strong>
+                  <span id="audioName">Your audio message</span>
+                </div>
+                <div class="audio-bar"><span id="audioProgress"></span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <p class="hint">Click the card or press Enter/Space to flip it.</p>
+      </div>
+
+      <aside class="customizer">
+        <div class="customizer-title">
+          <div>
+            <span class="eyebrow">Personalize</span>
+            <h2>Your Message</h2>
+          </div>
+          <button class="reset-btn" id="resetButton" type="button">Reset</button>
+        </div>
+
+        <label>
+          Teacher's name
+          <input id="teacherInput" type="text" value="An amazing teacher" maxlength="45" placeholder="e.g. Ma'am Santos">
+        </label>
+
+        <label>
+          Your name
+          <input id="senderInput" type="text" value="Your Student" maxlength="45" placeholder="Your name">
+        </label>
+
+        <label>
+          Personal message
+          <textarea id="messageInput" maxlength="350">Thank you for your patience, guidance, and kindness. Your lessons inspire us to learn, grow, and believe in ourselves. We are grateful for everything you do.</textarea>
+        </label>
+
+        <div class="upload-grid">
+          <label class="upload">
+            <span class="upload-icon">▧</span>
+            <span><strong>Add Photo</strong><small>JPG, PNG, WEBP</small></span>
+            <input id="photoInput" type="file" accept="image/*">
+          </label>
+
+          <label class="upload">
+            <span class="upload-icon">♫</span>
+            <span><strong>Add Audio</strong><small>MP3, WAV, M4A</small></span>
+            <input id="audioInput" type="file" accept="audio/*">
+          </label>
+        </div>
+
+        <div class="color-row">
+          <label>
+            Card color
+            <input id="colorInput" type="color" value="#174c43" title="Choose card color">
+          </label>
+          <label>
+            Accent
+            <input id="accentInput" type="color" value="#d9a441" title="Choose accent color">
+          </label>
+        </div>
+
+        <button class="share-btn" id="saveButton" type="button">Save Card Settings</button>
+        <p class="privacy-note">Photos and audio stay in your browser. Nothing is uploaded by this webpage.</p>
+      </aside>
+    </section>
+
+    <footer>
+      <span>Made with appreciation for every teacher.</span>
+      <span>Teachers' Day Message Card • 2026</span>
+    </footer>
+  </main>
+
+  <audio id="audioElement"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
